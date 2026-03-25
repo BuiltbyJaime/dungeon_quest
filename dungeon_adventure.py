@@ -1,4 +1,5 @@
 import random
+import time
 
 def main():
     def setup_player():
@@ -18,7 +19,16 @@ def main():
         # TODO: Ask the user for their name using input()
         # TODO: Initialize a dictionary with keys: "name", "health", and "inventory"
         # TODO: Return the dictionary
+        player_stats={}
 
+        print("Dare to enter this dungeon?")
+        time.sleep(2)
+        player_name =input("what is your name?:  ")
+        player_stats["Name"]= player_name
+        player_stats["Health"]= int(10)
+        player_stats["Inventory"]= {}
+
+        return(player_stats)
 
     def create_treasures():
         """
@@ -38,8 +48,17 @@ def main():
         """
         # TODO: Create a dictionary of treasure names and integer values
         # TODO: Return the dictionary
+        treasures  = {
 
-
+        
+                    "gold coin": 5,
+                    "ruby": 10,
+                    "ancient scroll": 7,
+                    "emerald": 9,
+                    "silver ring": 4
+                }
+        return treasures
+    
     def display_options(room_number):
         """
         Displays available options for the player in the current room.
@@ -56,6 +75,13 @@ def main():
             4. Quit the game
         """
         # TODO: Print the room number and the 4 menu options listed above
+
+        print(f"You are in {room_number} ")
+        print(f'\n What would you like to do ?')
+        print(f'\n 1. Search for Treasure ')
+        print(f'\n 2. Move to the next room ')
+        print(f'\n 3. Check health and inventory ')
+        print(f'\n 4. Quit the game ')
 
 
     def search_room(player, treasures):
@@ -79,6 +105,10 @@ def main():
         # TODO: Write an if/else to handle treasure vs trap outcomes
         # TODO: Update player dictionary accordingly
         # TODO: Print messages describing what happened
+        outcome = random.choice(["Treasure",["Trap"]])
+        if outcome == "Treasure":
+            print(f"Oh! lucky you, you have found {outcome}")
+     
 
 
     def check_status(player):
